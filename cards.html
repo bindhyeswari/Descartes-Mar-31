@@ -32,9 +32,20 @@
             });
         };
 
+        Deck.prototype.shuffle = function () {
+            var randomIndex = 0, temp;
+            for (var i = 0, len = 52; i < len; i++) {
+                randomIndex = Math.floor(Math.random() * (this.cards.length - 1));
+                temp = this.cards[i];
+                this.cards[i] = this.cards[randomIndex];
+                this.cards[randomIndex] = this.cards[i];
+            }
+        };
+
         var deck = new Deck();
         console.log(deck.toString());
-
+        deck.shuffle();
+        console.log(deck.toString());
 
 
 
